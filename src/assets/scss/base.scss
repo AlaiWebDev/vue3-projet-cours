@@ -16,6 +16,7 @@
   --border-radius: 4px;
 
   --font-family: 'Roboto', sans-serif;
+
 }
 
 // reset
@@ -48,9 +49,14 @@ body {
   min-height: 100vh;
   padding: 0;
   margin: 0;
-  font-family: var(--font-family);
+  // font-family: var(--font-family);
+  
   color: var(--text-color);
   background-color: var(--gray-1);
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 // flex
@@ -112,8 +118,16 @@ body {
   margin-right: 10px;
 }
 
+.ml-10 {
+  margin-left: 10px;
+}
+
 .mr-20 {
   margin-right: 20px;
+}
+
+.ml-20 {
+  margin-left: 20px;
 }
 
 .m-20 {
@@ -132,7 +146,17 @@ body {
   border-radius: var(--border-radius);
   cursor: pointer;
   font-weight: 500;
+  font-family: "HYWenHei";
   transition: background-color 0.2s;
+  user-select: none;
+}
+
+.btn-disabled {
+  pointer-events: none;
+  border: none;
+  background-color: #cccccc;
+  background-color:inherit;
+  color: red;
 }
 
 .btn-primary {
@@ -148,5 +172,13 @@ body {
   color: var(--text-primary-color);
   &:hover {
     background-color: var(--danger-2);
+  }
+}
+
+.btn-success {
+  background-color: var(--success-1);
+  color: var(--text-primary-color);
+  &:hover {
+      background-color: var(--success-2);
   }
 }

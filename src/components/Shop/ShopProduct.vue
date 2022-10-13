@@ -16,17 +16,20 @@
             class="product-image"
             :style="{ backgroundImage: `url(${product.image})` }"
         ></div>
-        <div class="p-10 d-flex flex-column">
+        <div class="p-10 d-flex flex-column bottom-div">
             <h4>{{ product.title }}</h4>
             <p>{{ product.reference }}</p>
             <div class="d-flex flex-row align-items-center">
-                <strong class="flex-fill">Prix : {{ product.price.toFixed(2) }}€</strong>
+                <strong class="d-flex flex-fill">Prix : {{ product.price.toFixed(2) }}€</strong>
                 <button
-                    class="btn btn-primary"
+                    class="btn ml-10"
+                    :class="{'btn-disabled': product.stock===0, 'btn-primary': product.stock>0}"
+                    :disabled="product.stock===0"
                     @click="emit('addProductToCart', product.id)"
                 >
-                Ajouter au panier
+                {{product.stock===0 ? 'EPUISÉ' : 'Ajouter au panier' }}
                 </button>
+                
             </div>
         </div>
     </div>
@@ -34,8 +37,9 @@
 
 <style lang="scss" scoped>
 .product {
+    width: fit-content;
     background-color: #F2C48D;
-    // border: var(--border);
+    border: var(--border);
     border-radius: var(--border-radius);
     &-image {
         border-top-right-radius: var(--border-radius);
@@ -43,6 +47,10 @@
         background-size: cover;
         background-position: center;
         height: 250px;
-  }
+    }
+    .bottom-div {
+        width: 225px;
+        height: 10rem;
+    }
 }
 </style>

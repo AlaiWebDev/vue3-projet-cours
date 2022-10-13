@@ -27,6 +27,9 @@
 
 <style lang="scss" scoped>
 header {
+    position: fixed;
+    top: 0;
+    width: 100%;
     background-color: var(--primary-1);
     a {
         color: var(--text-primary-color);
