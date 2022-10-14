@@ -29,5 +29,6 @@
     border: var(--border);
     border-radius: var(--border-radius);
     background-color: var(--gray-1);
+    font-size: .8rem;
 }
 </style>

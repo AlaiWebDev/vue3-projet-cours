@@ -4,7 +4,6 @@
     defineProps<{
         product: ProductInterface;
     }>();
-
     const emit = defineEmits<{
         (e: 'addProductToCart', productId: number): void;
     }>();
@@ -22,14 +21,18 @@
             <div class="d-flex flex-row align-items-center">
                 <strong class="d-flex flex-fill">Prix : {{ product.price.toFixed(2) }}€</strong>
                 <button
-                    class="btn ml-10"
-                    :class="{'btn-disabled': product.stock===0, 'btn-primary': product.stock>0}"
-                    :disabled="product.stock===0"
+                    class="btn ml-10 btn-primary"
                     @click="emit('addProductToCart', product.id)"
+                    v-if="product.stock !==0"
                 >
-                {{product.stock===0 ? 'EPUISÉ' : 'Ajouter au panier' }}
+                Ajouter au panier
                 </button>
-                
+                <button
+                    class="btn ml-10 btn-disabled"
+                    v-else
+                >
+                STOCK ÉPUISÉ
+                </button>
             </div>
         </div>
     </div>

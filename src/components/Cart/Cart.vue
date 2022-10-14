@@ -27,8 +27,7 @@
 
 <style lang="scss" scoped>
   .cart-list {
-    position: fixed;
-    top: 51px;
-    right: 0;
+    width: 350px;
+    font-size: .7rem;
   }
 </style>
